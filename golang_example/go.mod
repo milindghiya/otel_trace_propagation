@@ -3,6 +3,8 @@ module github.com/milindghiya/otel_trace_propagation/golang_example
 go 1.20
 
 require (
+	github.com/go-resty/resty/v2 v2.9.1
+	github.com/gorilla/mux v1.8.0
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.45.0
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.45.0
 	go.opentelemetry.io/otel v1.19.0
