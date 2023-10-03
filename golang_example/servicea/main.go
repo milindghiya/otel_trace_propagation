@@ -59,8 +59,6 @@ func CallServiceByUsingResty(ctx context.Context) string {
 	om, _ := otel_utils.GetOtelManager()
 	cli := resty.New()
 	restyReq := cli.R()
-	ctx, span := om.GetTracer("serviceA").Start(ctx, "CallServiceByUsingResty")
-	defer span.End()
 	om.GetTextMapPropagator().Inject(ctx, propagation.HeaderCarrier(restyReq.Header))
 	restyReq.SetContext(ctx)
 	res, err := restyReq.Get("http://localhost:8081/new")
