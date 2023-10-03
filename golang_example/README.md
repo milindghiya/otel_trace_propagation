@@ -3,11 +3,11 @@
 This repository consists of three services: serviceA, serviceB, and serviceC. serviceA acts as the main interaction point, exposing an HTTP endpoint. It uses OpenTelemetry SDK to generate traceIds for better observability and makes subsequent requests to both serviceB and serviceC.
 
 ## Service Interactions
-
+```
 Client -> serviceA (HTTP request)
 serviceA -> serviceB (HTTP request using net/http and resty)
 serviceA -> serviceC (gRPC request)
-
+```
 
 
 ## Setup & Installation
