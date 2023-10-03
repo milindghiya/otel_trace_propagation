@@ -48,7 +48,7 @@ func main() {
 		// Call Service C using grpc
 		output += CallServiceUsingGrpc(ctx)
 		// Respond to the original request
-		w.Write([]byte(fmt.Sprintf("Service A calling Service B - TraceID: %s, SpanID: %s\n", traceID, spanID) + output))
+		w.Write([]byte(fmt.Sprintf("Service A calling Service B and Service C - TraceID: %s, SpanID: %s\n", traceID, spanID) + output))
 	})
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
