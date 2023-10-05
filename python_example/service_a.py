@@ -49,7 +49,7 @@ def endpoint_a():
         # gRPC call to Service C
         with grpc.insecure_channel('localhost:50051') as channel:
             stub = service_c_pb2_grpc.ServiceCStub(channel)
-            response_c = stub.GetResponse(service_c_pb2.RequestC(message='Request from Service A.'),metadata=carrier)
+            response_c = stub.GetResponse(service_c_pb2.RequestC(message='Request from Service A.'))
         
         return f"Response B: {response_b.text}, Response C: {response_c.message}"
 
