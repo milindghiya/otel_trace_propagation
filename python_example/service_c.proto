@@ -1,0 +1,17 @@
+syntax = "proto3";
+package service_c;
+
+service ServiceC {
+    rpc GetResponse(RequestC) returns (ResponseC);
+}
+message RequestC {
+    string message = 1;
+}
+message ResponseC {
+    string message = 1;
+}
+
+
+
+
+
