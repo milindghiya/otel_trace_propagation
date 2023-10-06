@@ -15,7 +15,6 @@ import (
 
 	"github.com/go-resty/resty/v2"
 	"github.com/milindghiya/otel_trace_propagation/golang_example/otel_utils"
-	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 	"go.opentelemetry.io/otel/propagation"
 )
 
@@ -71,8 +70,9 @@ func CallServiceByUsingResty(ctx context.Context) string {
 }
 
 func CallServiceByUsingHttpClient(ctx context.Context) string {
+	om, _ := otel_utils.GetOtelManager()
 	req, _ := http.NewRequestWithContext(ctx, "GET", "http://localhost:8081/new", nil)
-	client := http.Client{Transport: otelhttp.NewTransport(http.DefaultTransport)}
+	client := http.Client{Transport: om.GetOtelTransportForHttp()}
 	resp, err := client.Do(req)
 	defer resp.Body.Close()
 	if err != nil {

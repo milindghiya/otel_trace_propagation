@@ -118,3 +118,7 @@ func (om *OtelManager) AddOtelMiddlewareforMuxRouter(h http.Handler, route strin
 func (om *OtelManager) GetOtelGrpcHandler() stats.Handler {
 	return otelgrpc.NewClientHandler()
 }
+
+func (om *OtelManager) GetOtelTransportForHttp() http.RoundTripper {
+	return otelhttp.NewTransport(http.DefaultTransport)
+}
