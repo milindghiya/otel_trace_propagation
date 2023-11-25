@@ -5,7 +5,7 @@ This repository consists of three services: serviceA, serviceB, and serviceC. se
 ## Service Interactions
 ```
 Client -> serviceA (HTTP request)
-serviceA -> serviceB (HTTP request using net/http and resty)
+serviceA -> serviceB (HTTP request using http client)
 serviceA -> serviceC (gRPC request)
 ```
 
